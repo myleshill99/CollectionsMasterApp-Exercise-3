@@ -16,17 +16,17 @@ namespace CollectionsMasterConsoleUI
 
             #region Arrays
             //TODO: Create an integer Array of size 50
-            var number = new int[50];
+            var numbers = new int[50];
 
 
             //TODO: Create a method to populate the number array with 50 random numbers that are between 0 and 50
             Populater(numbers);
 
             //TODO: Print the first number of the array
-            Console.WriteLine($"number{0}}");
+            Console.WriteLine($"number{0}");
 
             //TODO: Print the last number of the array
-            Console.WriteLine($"numbers[numbers.Length - 1} numbers]");
+            Console.WriteLine($"{numbers[numbers.Length - 1]} numbers");
 
             Console.WriteLine("All Numbers Original");
             //UNCOMMENT this method to print out your numbers from arrays or lists
@@ -44,9 +44,9 @@ namespace CollectionsMasterConsoleUI
             Console.WriteLine("---------REVERSE CUSTOM------------");
             ReverseArray(numbers);
 
-            foreach (var number in Array)
+            foreach (var number in numbers)
             {
-                Console.WriteLine!($"");
+                Console.WriteLine(number);
             }
 
             Console.WriteLine("-------------------");
@@ -138,9 +138,9 @@ namespace CollectionsMasterConsoleUI
         private static void OddKiller(List<int> numberList)
         {
             for (int i = 0; i < numberList.Count;i++) 
-                 if (num % 2 != 0)
+                 if (numberList[i] % 2 != 0)
                 {
-                    numberList.Remove(num); 
+                    numberList.Remove(numberList[i]); 
                 }
                  
                  //var evens =  numberList.Where{x => x % 2 != 0)
@@ -152,50 +152,53 @@ namespace CollectionsMasterConsoleUI
         private static void NumberChecker(List<int> numberList, int searchNumber)
         {
             //Print to the console that the number is inside of the list
-            if {
-                numberList.Contains(searchNumber))
-              {
-                    Console.WriteLine($"Yes we have the nunber you're looking for");
+            if (numberList.Contains(searchNumber))
+            {
+                Console.WriteLine($"Yes we have the nunber you're looking for");
 
-                }
-               else
-                {
-                    Console.WriteLine($"These aren't the droids you're looking for");
-                
-                }
+            }
+            else
+            {
+                Console.WriteLine($"These aren't the droids you're looking for");
 
-                private static void Populater(List<int> numberList)
-                {
-                    Random rng = new Random();
-
-                }
-
-                private static void Populater(int[] numbers)
-                {
-                    //Create a method to populate the number array with 50 random numbers
-                    // that are better 0 and 50
-                    for (int i = 0; i < numbers.Length; i++)
-                        Random rng = new Random();
-                    rng.Next(0, 50);
-                }
-
-                private static void ReverseArray(int[] array)
-                {
-
-                }
-
-                /// <summary>
-                /// Generic print method will iterate over any collection that implements IEnumerable<T>
-                /// </summary>
-                /// <typeparam name="T"> Must conform to IEnumerable</typeparam>
-                /// <param name="collection"></param>
-                private static void NumberPrinter<T>(T collection) where T : IEnumerable<int>
-                {
-                    //STAY OUT DO NOT MODIFY!!
-                    foreach (var item in collection)
-                    {
-                        Console.WriteLine(item);
-                    }
-                }
             }
         }
+
+        private static void Populater(List<int> numberList)
+        {
+            Random rng = new Random();
+
+        }
+
+        private static void Populater(int[] numbers)
+        {
+            //Create a method to populate the number array with 50 random numbers
+            // that are between 0 and 50
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                Random rng = new Random();
+                numbers[i] = rng.Next(0, 50);
+            }
+
+        }
+
+        private static void ReverseArray(int[] array)
+        {
+            Array.Reverse(array);
+        }
+
+        /// <summary>
+        /// Generic print method will iterate over any collection that implements IEnumerable<T>
+        /// </summary>
+        /// <typeparam name="T"> Must conform to IEnumerable</typeparam>
+        /// <param name="collection"></param>
+        private static void NumberPrinter<T>(T collection) where T : IEnumerable<int>
+        {
+            //STAY OUT DO NOT MODIFY!!
+            foreach (var item in collection)
+            {
+                Console.WriteLine(item);
+            }
+        }
+    }
+}
